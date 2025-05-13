@@ -1,0 +1,234 @@
+% ******************************
+%* FILE CONFIGURATION
+% ******************************
+
+\documentclass[12pt, a4paper]{article}
+
+% Enables Spanish language support and table naming
+\usepackage[spanish, es-tabla]{babel}
+
+% Enables creation of hyperlinks in the document
+\usepackage{hyperref}
+
+% Enables inclusion of images and figures
+\usepackage{graphicx}
+
+% Provides multirow functionality for tables
+\usepackage{multirow}
+
+% Provides better control for floating elements like tables and figures
+\usepackage{float}
+
+% Sets page margins
+\usepackage[left=2.5cm, right=2.5cm, top=2cm, bottom=2cm]{geometry}
+
+% Allows customization of headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Clears all header and footer fields
+\fancyfoot[C]{\thepage} % Centers the page number at the footer
+\renewcommand{\headrulewidth}{0pt} % Removes the header line
+\renewcommand{\footrulewidth}{0pt} % Removes the footer line
+
+% Forces the same style on first page
+\fancypagestyle{plain}
+{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% Adjusts table bstep width
+\setlength{\arrayrulewidth}{0.5mm}
+
+% Adjusts spacing between table columns
+\setlength{\tabcolsep}{5pt}
+
+% Changes the name of the table caption
+\def\tablename{Tabla}
+
+
+% ******************************
+%* NEW COMMANDS
+% ******************************
+
+% Creates a custom numbered step command (with bold numbers)
+\newcounter{step}
+\newcommand{\step}[1]
+{
+  \par\vspace{2ex}
+  \stepcounter{step}
+  \noindent\textbf{\arabic{step}.} #1\par\vspace{1ex}
+}
+
+% Creates a custon numbered step command (without bold numbers)
+\newcounter{normalstep}
+\newcommand{\normalstep}[1]
+{
+  \par\vspace{1ex}
+  \stepcounter{normalstep}
+  \noindent{\arabic{normalstep}.} #1\par\vspace{1ex}
+}
+
+
+% ******************************
+%* ARTICLE SECTIONS
+% ******************************
+
+\title{TP 2: Tubo de Kundt}
+\author
+{
+  Caorsi Juan Ignacio, \href{jcaorsi@itba.edu.ar}{jcaorsi@itba.edu.ar} \\
+  Dib Ian, \href{idib@itba.edu.ar}{idib@itba.edu.ar} \\
+  Moschini Rita, \href{rmoschini@itba.edu.ar}{rmoschini@itba.edu.ar} \\
+  Tamagnini Ana, \href{atamagnini@itba.edu.ar}{atamagnini@itba.edu.ar}
+}
+
+\date{Grupo 4 - 15/04/2025}
+
+\begin{document}
+\maketitle
+
+%* FIRST QUESTION
+\step{¿El micrófono mide variaciones de presión o desplazamientos del aire?}
+
+En una onda estacionaria longitudinal, las regiones donde las partículas de aire no se mueven (nodos de desplazamiento) coinciden con aquellas donde la presión fluctúa con mayor intensidad (antinodos de presión). Esto se debe a que, cuando las partículas no pueden desplazarse, cualquier compresión o expansión de las regiones adyacentes se manifiesta como una variación más intensa de presión en ese punto. Esto es lo que ocurre en los extremos del tubo, puesto que, como se mantienen cerrados, el aire en ellos no puede seguir desplazándose.
+
+Al ubicar el micrófono en uno de los extremos del tubo, la señal registrada por el osciloscopio no se anuló, independientemente de la frecuencia generada. Esto sugiere que el micrófono mide variaciones de presión y no desplazamientos del aire.
+
+Dado que la onda estudiada es de presión, consideramos a los extremos del tubo como libres puesto que en ellos siempre hay antinodos de presión. Sin embargo, es importante notar que el modelo estudiado es válido solo si la vibración de la membrana del parlante es de pequeña amplitud y si la deformación del micrófono ante la onda es despreciable, como se aclara en la guía de laboratorio.
+
+Dado que en las secciones siguientes se debe trabajar con las frecuencias $f_{n}$ asociadas a cada armónico $n$ y con la amplitud de las señales generadas, se ubica el micrófono en uno de los extremos del tubo. Al ser un antinodo de presión, y la amplitud registrada por el osciloscopio es máxima en cada armónico y facilita el registro de datos en los pasos siguientes del experimento.
+
+
+%* SECOND QUESTION
+\step{Determine la frecuencia del modo fundamental y la frecuencia de los siguientes tres armónicos.}
+
+La frecuencia $f_{n}$ del armónico $n$ está dado por la expresión
+
+\begin{equation}
+    f_{n} = \frac{v}{\lambda_{n}}
+  \label{equation1}
+\end{equation}
+
+siendo $v$ la velocidad del sonido en el tubo y $\lambda_{n}$ la longitud de onda correspondiente al armónico $n$, dado, a su vez, por
+
+\begin{equation}
+  \lambda_{n} = \frac{2L}{n}
+  \label{equation2}
+\end{equation}
+
+siendo $L$ la longitud del tubo y $n$ el número de armónico. Juntando ambas expresiones, se obtiene:
+
+\begin{equation}
+  f_{n} = n \cdot \frac{v}{2L}
+  \label{equation3}
+\end{equation}
+
+Dado que a temperatura ambiente vale la aproximación $v_{sonido}\simeq 330 m/s$ y sabiendo que $L=0,5 m$, la frecuencia fundamental puede estimarse como 
+$$f_{1} = \frac{330 m/s}{2 \cdot 0,5m} \simeq 330 Hz$$
+
+Partiendo de este valor y de la relación $f_{n}=n\cdot f_{1}$, se estimaron los valores teóricos de las frecuencias $f_{n}$ para los primeros cuatro armónicos.
+
+La amplitud de la señal es máxima en las frecuencias $f_{n}$. En los valores cercanos la amplitud disminuye, y vuelve a aumentar a medida que el valor de la frecuencia se aproxima a la del siguiente armónico. Siguiendo este principio, para hallar los valores experimentales de los $f_{n}$, se partió de las frecuencias estimadas teóricamente y se las fue variando mediante el generador de señales hasta visualizar desde el osciloscopio que la amplitud fuera máxima.
+
+Los datos obtenidos se resumen en la siguiente tabla:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+  \hline
+  Frecuencias & Estimaciones teóricas (Hz) & Valores Experimentales (Hz)\\
+  \hline
+  $f_1$  & 330  & 346 \\ \hline
+  $f_2$  & 660 & 666 \\ \hline
+  $f_3$  & 990 & 960 \\ \hline
+  $f_4$  & 1320  & 1177 \\ \hline
+  \end{tabular}
+  \caption{\centering Estimaciones teóricas y valores experimentales de las frecuencias $f_{n}$ asociadas a cada armónico $n$.}
+  \label{tabla1}
+\end{table}
+
+Como se puede observar en la tabla \ref{tabla1}, los valores experimentales difieren de las estimaciones teóricas. Esto se debe a que el tubo no es ideal, llegando incluso a escucharse el sonido del parlante, lo que implica que el sistema pierde energía.
+
+
+%* THIRD QUESTION
+\step{Halle la velocidad del sonido dentro del tubo.}
+
+A partir de la ecuación \ref{equation3}, la velocidad del sonido en el tubo $v$ asociada a cada armónico $n$ puede despejarse como
+
+\begin{equation}
+  v_{n} = \frac{2L \cdot f_{n}}{n}
+  \label{equation4}
+\end{equation}
+
+Realizando el cálculo para cada valor experimental de $f_{n}$ obtenido en la sección anterior y agrupando los resultados en una tabla,
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \multirow{1}{2.1cm}{\centering $f_n$} 
+        & $v_{n}$ $(m/s)$ \\
+    \hline
+    $f_1$  & 346 \\ \hline
+    $f_2$  & 333 \\ \hline
+    $f_3$  & 320 \\ \hline
+    $f_4$  & 294  \\ \hline
+    \end{tabular}
+    \caption{Velocidad del sonido en el tubo para cada frecuencia $f_{n}$ de la tabla \ref{tabla1}.}
+    \label{tabla2}
+\end{table}
+
+En consecuencia, la velocidad del sonido en el tubo puede calcularse como el promedio de las $v_{n}$ de la tabla anterior:
+$$\overline{v} \simeq 323 m/s$$
+
+siendo esta una buena aproximación del valor teórico de la velocidad del sonido a temperatura ambiente $v_{sonido}\simeq 330 m/s$.
+
+Por otro lado, volviendo a la ecuación \ref{equation4}, de la relación $f_{n}=n\cdot f_{1}$ resulta la expresión
+$$ v_{n} = \frac{2L \cdot n \cdot f_{1}}{n} \Longleftrightarrow $$
+$$ v_{n} = 2L \cdot f_{1} $$
+
+donde puede apreciarse que la velocidad del sonido en el tubo es independiente del número de armónico $n$. Las discrepancias entre las velocidades $v_{n}$ se deben a los errores experimentales en las mediciones de las frecuencias $f_{n}$.
+
+
+%* FOURTH QUESTION
+\step{Midan el factor de calidad correspondiente a todos los armónicos registrados.}
+
+Se comenzó trabajando sobre la señal observada en el osciloscopio, que presentaba dos líneas horizontales superpuestas a la onda. Se colocó una de ellas a la mitad de la amplitud de la señal y no se la  volvió a modificar. La otra línea se ajustó para que coincidiera con el máximo de la onda en la frecuencia correspondiente al armónico $n$.
+
+A continuación, se registró el voltaje mostrado por el osciloscopio en ese punto, llamándolo $V_\mathrm{max}$ asociado al armónico $n$. Luego se calculó el valor $V_\mathrm{max}/\sqrt{2}$ y se modificó la posición de la línea superior hasta que el valor indicado en pantalla coincidiera con este nuevo valor.
+
+Con el micrófono fijo y manteniendo la onda en el armónico $n$, se varió manualmente la frecuencia hacia arriba y hacia abajo, utilizando la perilla del generador. En ambos casos, se buscó el punto en el que la amplitud de la señal disminuía hasta tocar apenas la línea correspondiente a $V_\mathrm{max}/\sqrt{2}$. Las frecuencias en las que esto ocurría se anotaron como $f^-$ (al disminuir la frecuencia) y $f^+$ (al aumentarla).
+
+Finalmente, se calculó el factor de calidad $Q$ para cada armónico mediante la fórmula:
+$$Q = \frac{f_n}{f^+ - f^-}$$
+donde $f_n$ es la frecuencia central del armónico $n$, y $f^+$, $f^-$ son las frecuencias en las que la amplitud de la señal alcanzaba $V_\mathrm{max}/\sqrt{2}$.
+
+Esto se repitió para cada uno de los cuatro armónicos encontrados en las secciones anteriores. Los resultados obtenidos se resumen en la siguiente tabla:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \multirow{1}{2.1cm}{\centering Armónicos} 
+        & $V_\mathrm{max} (mV)$
+        & $V_\mathrm{max}/\sqrt{2} (mV)$ 
+        & $f^+$ (Hz) 
+        & $f^-$ (Hz)
+        & $Q$ \\
+    \hline
+    $f_1$  & 160 & 113 & 357 & 337 & 17\\ \hline
+    $f_2$  & 300 & 212 & 673 & 659 & 48\\ \hline
+    $f_3$  & 212  & 150 & 980 & 945 & 27\\ \hline
+    $f_4$  & 200  & 140 & 1249 & 1090 & 7\\ \hline
+    \end{tabular}
+    \caption{\centering Mediciones del ancho de banda correspondiente a cada armónico $n$ y cálculo del factor de calidad $Q$ asociado.}
+    \label{tabla3}
+\end{table}
+
+Si bien las mediciones estuvieron sujetas a un importante margen de error —tanto por las limitaciones del equipo como por la dificultad de ajustar con precisión las frecuencias—, los valores obtenidos son razonables. 
+
+El factor de calidad $Q$ no depende únicamente de la frecuencia, sino también de las características particulares de cada resonancia. En consecuencia, no hay una relación fija entre los factores de calidad correspondientes a distintos armónicos.
+\end{document}
