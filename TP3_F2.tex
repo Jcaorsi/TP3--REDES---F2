@@ -76,7 +76,7 @@
 %* ARTICLE SECTIONS
 % ******************************
 
-\title{TP 2: Tubo de Kundt}
+\title{TP 3: Redes de Difracción}
 \author
 {
   Caorsi Juan Ignacio, \href{jcaorsi@itba.edu.ar}{jcaorsi@itba.edu.ar} \\
@@ -85,21 +85,91 @@
   Tamagnini Ana, \href{atamagnini@itba.edu.ar}{atamagnini@itba.edu.ar}
 }
 
-\date{Grupo 4 - 15/04/2025}
+\date{Grupo 4 - 13/05/2025}
 
 \begin{document}
 \maketitle
 
+Entonces los valores buscados fueron los siguientes:
+
+\section{FASE 1:}
+
+busco K con los datos de la hoja de ian: y = 679 +- 10 mm, D = 1690 +- 1 mm.
+
+\begin{equation}
+  K = \frac{Y}{{\lambda} \sqrt{Y^{2} + D^{2}}}
+\label{equation5}
+\end{equation} 
+
+y ${\Delta}K$ será:
+
+\begin{equation}
+  {\Delta}K = \sqrt{({\Delta}y)^2(\frac{D^{2}}{{\lambda} \left(Y^{2} + D^{2}\right)^{\frac{3}{2}}})^2+({\Delta}D)^2(-\frac{YD}{{\lambda} \left(D^{2} + Y^{2}\right)^{\frac{3}{2}}})^2}
+\label{equation5}
+\end{equation}
+
+Obtengo K = 602.5 +-73.9 1/mm (para pasar a 1/cm que es lo que se pide en el informe lo podemos multiplicaar por 10).
+
+\section{FASE 2:}
+
+Sabemos que $D' = 296 +- 1 mm $ 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+  \hline
+  Color & Y \\
+  \hline
+  $Azul$  & 79 +- 1 mm  \\ \hline
+  $Verde$  & 101.5 +- 1 mm \\ \hline
+  $Amarillo$  & 107.5 +- 1 mm \\ \hline
+  \end{tabular}
+  \caption{\centering Valores de las longitudes entre máximos de las ondas (y, NO 2y)}
+  \label{tabla1}
+\end{table}
+
+Para las longitudes de onda usamos:
+
+
+\begin{equation}
+  {\lambda} = \frac{Y}{K \sqrt{Y^{2} + D^{2}}}
+\label{equation5}
+\end{equation}
+
+Con su incerteza:
+\begin{equation}
+  {\Delta}{\lambda} = \sqrt{({\Delta}K)^2(-\frac{Y}{\sqrt{Y^{2} + 
+  D^{2}} \, K^{2}})^2 + ({\Delta}D)^2(-\frac{YD}{K \left(D^{2} + Y^{2}\right)^{\frac{3}{2}}})^2+ ({\Delta}Y)^2(\frac{D^{2}}{K \left(Y^{2} + D^{2}\right)^{\frac{3}{2}}})^2}
+\label{equation5}
+\end{equation}
+
+Entonces los valores de las longitudes de onda son:
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+  \hline
+  Onda por color & ${\lambda}$ \\
+  \hline
+  ${\lambda_{azul}}$  & 428.3 +- 52.7 nm  \\ \hline
+  ${\lambda_{verde}}$  & 538.8 +- 66.2 nm \\ \hline
+  ${\lambda_{amarillo}}$  & 567.0 +- 69.6 nm \\ \hline
+  \end{tabular}
+  \caption{\centering }
+  \label{tabla2}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
 %* FIRST QUESTION
 \step{¿El micrófono mide variaciones de presión o desplazamientos del aire?}
 
-En una onda estacionaria longitudinal, las regiones donde las partículas de aire no se mueven (nodos de desplazamiento) coinciden con aquellas donde la presión fluctúa con mayor intensidad (antinodos de presión). Esto se debe a que, cuando las partículas no pueden desplazarse, cualquier compresión o expansión de las regiones adyacentes se manifiesta como una variación más intensa de presión en ese punto. Esto es lo que ocurre en los extremos del tubo, puesto que, como se mantienen cerrados, el aire en ellos no puede seguir desplazándose.
-
-Al ubicar el micrófono en uno de los extremos del tubo, la señal registrada por el osciloscopio no se anuló, independientemente de la frecuencia generada. Esto sugiere que el micrófono mide variaciones de presión y no desplazamientos del aire.
-
-Dado que la onda estudiada es de presión, consideramos a los extremos del tubo como libres puesto que en ellos siempre hay antinodos de presión. Sin embargo, es importante notar que el modelo estudiado es válido solo si la vibración de la membrana del parlante es de pequeña amplitud y si la deformación del micrófono ante la onda es despreciable, como se aclara en la guía de laboratorio.
-
-Dado que en las secciones siguientes se debe trabajar con las frecuencias $f_{n}$ asociadas a cada armónico $n$ y con la amplitud de las señales generadas, se ubica el micrófono en uno de los extremos del tubo. Al ser un antinodo de presión, y la amplitud registrada por el osciloscopio es máxima en cada armónico y facilita el registro de datos en los pasos siguientes del experimento.
 
 
 %* SECOND QUESTION
